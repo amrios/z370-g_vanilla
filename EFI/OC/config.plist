@@ -543,7 +543,7 @@
 			<key>AllowSetDefault</key>
 			<true/>
 			<key>AuthRestart</key>
-			<false/>
+			<true/>
 			<key>BootProtect</key>
 			<string>None</string>
 			<key>ExposeSensitiveData</key>
@@ -609,8 +609,6 @@
 			<dict>
 				<key>DefaultBackgroundColor</key>
 				<data>AAAAAA==</data>
-				<key>UIScale</key>
-				<data>AQ==</data>
 			</dict>
 			<key>4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102</key>
 			<dict>
@@ -744,15 +742,9 @@
 		<array>
 			<string>HfsPlus.efi</string>
 			<string>OpenRuntime.efi</string>
-			<string>#OpenCanopy.efi</string>
-			<string>#AudioDxe.efi</string>
-			<string>#OpenUsbKbDxe.efi</string>
-			<string>#UsbMouseDxe.efi</string>
-			<string>#Ps2KeyboardDxe.efi</string>
-			<string>#Ps2MouseDxe.efi</string>
-			<string>#HiiDatabase.efi</string>
-			<string>#NvmExpressDxe.efi</string>
-			<string>#XhciDxe.efi</string>
+			<string>OpenCanopy.efi</string>
+			<string>Ps2KeyboardDxe.efi</string>
+			<string>Ps2MouseDxe.efi</string>
 		</array>
 		<key>Input</key>
 		<dict>
@@ -771,9 +763,9 @@
 			<key>PointerSupport</key>
 			<false/>
 			<key>PointerSupportMode</key>
-			<string>ASUS</string>
+			<string>NO</string>
 			<key>TimerResolution</key>
-			<integer>50000</integer>
+			<real>50000</real>
 		</dict>
 		<key>Output</key>
 		<dict>
@@ -817,7 +809,7 @@
 			<key>AppleRtcRam</key>
 			<false/>
 			<key>AppleSmcIo</key>
-			<false/>
+			<true/>
 			<key>AppleUserInterfaceTheme</key>
 			<false/>
 			<key>DataHub</key>
@@ -825,9 +817,9 @@
 			<key>DeviceProperties</key>
 			<false/>
 			<key>FirmwareVolume</key>
-			<false/>
+			<true/>
 			<key>HashServices</key>
-			<false/>
+			<true/>
 			<key>OSInfo</key>
 			<false/>
 			<key>UnicodeCollation</key>
@@ -842,7 +834,7 @@
 			<key>ReleaseUsbOwnership</key>
 			<false/>
 			<key>RequestBootVarFallback</key>
-			<false/>
+			<true/>
 			<key>RequestBootVarRouting</key>
 			<true/>
 			<key>UnblockFsConnect</key>
