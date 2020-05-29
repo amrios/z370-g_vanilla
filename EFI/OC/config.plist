@@ -765,7 +765,7 @@
 			<key>PointerSupportMode</key>
 			<string>NO</string>
 			<key>TimerResolution</key>
-			<real>50000</real>
+			<integer>50000</integer>
 		</dict>
 		<key>Output</key>
 		<dict>
