@@ -207,6 +207,22 @@
 		<array>
 			<dict>
 				<key>BundlePath</key>
+				<string>SATA-200-series-unsupported.kext</string>
+				<key>Comment</key>
+				<string>Support for Intel 200 SATA chipset</string>
+				<key>ExecutablePath</key>
+				<string></string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>Enabled</key>
+				<true/>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>BundlePath</key>
 				<string>Lilu.kext</string>
 				<key>Comment</key>
 				<string>Patch engine</string>
@@ -275,7 +291,7 @@
 				<key>Comment</key>
 				<string>Intel Ethernet LAN</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/IntelMausi</string>
 				<key>MaxKernel</key>
@@ -287,11 +303,11 @@
 			</dict>
 			<dict>
 				<key>BundlePath</key>
-				<string>Legacy_USB3.kext</string>
+				<string>SMCProcessor.kext</string>
 				<key>Comment</key>
-				<string>XHC ports configuration</string>
+				<string>Temperature sensor support for CPU</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>ExecutablePath</key>
 				<string></string>
 				<key>MaxKernel</key>
@@ -303,17 +319,17 @@
 			</dict>
 			<dict>
 				<key>BundlePath</key>
-				<string>AppleMCEReporterDisabler.kext</string>
+				<string>SMCSuperIO.kext</string>
 				<key>Comment</key>
-				<string>AppleMCEReporter disabler</string>
+				<string>Fan control via VirtualSMC</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>ExecutablePath</key>
 				<string></string>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
-				<string>19.0.0</string>
+				<string></string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
 			</dict>
@@ -452,11 +468,11 @@
 			<key>LapicKernelPanic</key>
 			<false/>
 			<key>PanicNoKextDump</key>
-			<false/>
+			<true/>
 			<key>PowerTimeoutKernelPanic</key>
-			<false/>
+			<true/>
 			<key>ThirdPartyDrives</key>
-			<false/>
+			<true/>
 			<key>XhciPortLimit</key>
 			<false/>
 		</dict>
