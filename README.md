@@ -60,12 +60,12 @@ Our CPU codename is Coffee Lake. You'll want to follow the removal part since ou
 I'll provide the reasoning why I chose each Kext or Kext Package.
 * **VirtualSMC**
 macOS requires a SMC to boot to verify if the hardware is genuine. This emulates one. You should use the following kext unless warranted.
-1. VirtualSMC
-This is the main package to emulate the SMC
-2. SMCProcessor
-Provides sensor readings in Intel CPUs
-3. SMCSuperIO
-Other sensor readings.
+&nbsp;1. VirtualSMC
+&nbsp;This is the main package to emulate the SMC
+&nbsp;2. SMCProcessor
+&nbsp;Provides sensor readings in Intel CPUs
+&nbsp;3. SMCSuperIO
+&nbsp;Other sensor readings.
 * **Lilu**
 Lilu is a dependency for other important kexts.
 * **WhateverGreen**
