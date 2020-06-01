@@ -1,4 +1,14 @@
+# ASUS ROG STRIX Z370-G GAMING Hackintosh Notes
+
 Based on [OpenCore Desktop Guide](https://dortania.github.io/OpenCore-Desktop-Guide/)
+Configuration is based on OpenCore 0.5.8
+
+## Comments
+I usually only use the Hackintosh for general homework, and it works perfectly fine. More intensive workloads are stable, but extended periods haven't been tested.
+
+The motherboard seems to be really great for Hackintosh, that might be due to OpenCore, though. My system worked with OpenCore 0.5.3 with three minor security upgrades (10.15.2 to 10.15.5) without anything breaking.
+
+If you browsed around the repo, I only included a config.plist. I'm against people using a drag-and-drop build or *beast for Hackintosh since when things break, they really do break. If you have a drag-and-drop build in this case, you are kind of SOL since you won't really know where to start. The OpenCore desktop guide with some intuition is all you need for this board, it just works. Use my notes and commit history to hold your hand.
 
 ## Considerations
 * iGPU has not been tested and probably doesn't work.
@@ -6,12 +16,15 @@ Based on [OpenCore Desktop Guide](https://dortania.github.io/OpenCore-Desktop-Gu
 * Onboard Wi-fi and BT probably doesn't work, I don't use it
 * You must make your own USB map. Mine doesn't map the front ports.
 
-This is not a drag and drop build. You are expected to follow OpenCore documentation, use my commit history and notes to figure out my logic. You are expected to have some knowledge on how macOS and the tools function. The OpenCore documentation was pretty much spot on and I had the system booting in one try with almost everything working.
+## UEFI/BIOS Settings
+
+I need to add this.
 
 ## Working/Not Working
 **Working**
 * Suspend and Wakeup w/ Power Nap
 * Ethernet, might have to play with ethernet options to obtain > 100Mb full duplex
+> System Preferences > Network > Ethernet > Advanced... > Hardware, then fiddle around if your speeds seem low.
 * CPU power management
 * Audio via USB DAC via AppleUSBAudioDevice
 * SIP
@@ -25,6 +38,7 @@ This is not a drag and drop build. You are expected to follow OpenCore documenta
 * iGPU, as mentioned above.
 **Not working**
 * Bluetooth and Wifi, there is no driver in macOS for the ones on-board. You must buy a compatible device in order to use them.
+* Any service requiring bluetooth due to lack of supported hardware.
 
 
 
@@ -50,6 +64,12 @@ LED EC: AUMA0-E6K5-0104
 
 The kexts will have the proper corrections for the DSDT and we don't need to define patches or a custom DSDT in OpenCore. Follow OpenCore documentation for SSDT. Our board does not have a AWAC, so you do not need the AWAC patch.
 
+Therefore, we only need the following SSDT:
+* SSDT-EC-USBX
+* SSDT-PLUG
+
+Note that if you use SSDTTime, you will only get SSDT-EC. The guide will talk about grabbing a SSDT-USBX.aml that you can use, but I just modified my SSDT based on the sample file on GitHub. There aren't really any modifications, just make sure you brackets are balanced. The `Scope (\_SB.PCI0.LPCB)` is inside of `Scope (\_SB)` from the sample.
+
 ## Annotated Steps
 You should follow [OpenCore Desktop Guide](https://dortania.github.io/OpenCore-Desktop-Guide/) and use this guide to supplement.
 ### Obtaining MacOS
@@ -60,12 +80,12 @@ Our CPU codename is Coffee Lake. You'll want to follow the removal part since ou
 I'll provide the reasoning why I chose each Kext or Kext Package.
 * **VirtualSMC**
 macOS requires a SMC to boot to verify if the hardware is genuine. This emulates one. You should use the following kext unless warranted.
-&nbsp;1. VirtualSMC
-&nbsp;This is the main package to emulate the SMC
-&nbsp;2. SMCProcessor
-&nbsp;Provides sensor readings in Intel CPUs
-&nbsp;3. SMCSuperIO
-&nbsp;Other sensor readings.
+> 1. VirtualSMC
+>This is the main package to emulate the SMC
+> 2. SMCProcessor
+> Provides sensor readings in Intel CPUs
+> 3. SMCSuperIO
+> Other sensor readings.
 * **Lilu**
 Lilu is a dependency for other important kexts.
 * **WhateverGreen**
@@ -77,13 +97,17 @@ LAN kext for the on-board Intel GBE
 * **NoTouchID**
 I think you don't need this due to the SMBIOS, but certain prompts may lag when the system expect you to have Touch ID compatible hardware.
 * **VoodooPS2**
-Generic mouse support
+Generic mouse support, you'll need to add the subpackages inside the VoodooPS2 folder, which includes the kexts from your keyboard, mouse, and touchpad.
 
 You might need some more depending on your usage, but for my general use, this is fine.
 
 ### plist config
 
 Follow the documentation for Coffee Lake on the OpenCore doc. Very little differs from our specific board. You can always reference this repo if you are stuck.
+
+### iServices note
+
+Note that your IP can be flagged by Apple, which will require a phone call to Apple to be made in order to activate. Tether with your phone connection via HoRNDIS if this happens. Avoid using VPNs since the same issue might arise.
 
 
 
