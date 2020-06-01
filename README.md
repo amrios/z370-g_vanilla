@@ -1,7 +1,7 @@
 # ASUS ROG STRIX Z370-G GAMING Hackintosh Notes
 
 Based on [OpenCore Desktop Guide](https://dortania.github.io/OpenCore-Desktop-Guide/)
-Configuration is based on OpenCore 0.5.8
+Configuration is based on OpenCore 0.5.9
 
 ## Comments
 I usually only use the Hackintosh for general homework, and it works perfectly fine. More intensive workloads are stable, but extended periods haven't been tested.

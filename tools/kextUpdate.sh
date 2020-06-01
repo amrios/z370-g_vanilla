@@ -11,8 +11,9 @@ for i in "${LINKS[@]}"
 do
    curl -s $i \
 |   grep "browser_download_url.*RELEASE.zip" \
-|   cut -d : -f 1-3 \
+|   cut -d : -f 2,3 \
 |   tr -d \" \
 |   wget -qi -
+
 done
    
