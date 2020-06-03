@@ -64,6 +64,19 @@ UEFI info
 
 You can use GitHub's issue tab in the repo if you have questions or have a bugs to report. There is no guarantee that your problem is going to recieve attention or not.
 
+### Older Versions
+
+I tried to organize OpenCore upgrades and major + minor macOS upgrades into seperate branches.
+
+The way I organized macOS upgrades is kind of different. If there isn't a minor version number, imply that branch applies for all minor versions available that has been publicly released.
+If there is a minor version upgrade, the latest minor version is the latest one that will work from the version listed to any newer
+Example:
+A branch has
+1. 10.13-OC0.5.3 
+2.  10.13.4-OC0.5.3
+10.13 branch applies anywhere from initial release 10.13 until 10.13.3.
+10.13.4 applies for 10.13.4 until anywhere newer.
+
 ### DSDT/SSDT
 
 The kexts will have the proper corrections for the DSDT and we don't need to define patches or a custom DSDT in OpenCore. Follow OpenCore documentation for SSDT. Our board does not have a AWAC, so you do not need the AWAC patch.
