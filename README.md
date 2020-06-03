@@ -6,15 +6,15 @@ Configuration is based on OpenCore 0.5.9
 ## Comments
 I usually only use the Hackintosh for general homework, and it works perfectly fine. More intensive workloads are stable, but extended periods haven't been tested.
 
-The motherboard seems to be really great for Hackintosh, that might be due to OpenCore, though. My system worked with OpenCore 0.5.3 with three minor security upgrades (10.15.2 to 10.15.5) without anything breaking.
+The motherboard seems to be really great for Hackintosh, that might be due to OpenCore, though.
 
-If you browsed around the repo, I only included a config.plist. I'm against people using a drag-and-drop build or *beast for Hackintosh since when things break, they really do break. If you have a drag-and-drop build in this case, you are kind of SOL since you won't really know where to start. The OpenCore desktop guide with some intuition is all you need for this board, it just works. Use my notes and commit history to hold your hand.
+If you browsed around the repo, I only included a config.plist. I'm against people using a drag-and-drop build or using *beast for Hackintosh since when things break, they really do break. If you have a drag-and-drop build in this case, you are kind of SOL since you won't really know where to start. The OpenCore desktop guide with some intuition is all you need for this board, it's probably my easiest Hackintosh yet and only took about 6 hours. Use my notes and commit history to hold your hand.
 
 ## Considerations
 * iGPU has not been tested and probably doesn't work.
 * On-board audio has not been tested.
 * Onboard Wi-fi and BT probably doesn't work, I don't use it
-* You must make your own USB map. Mine doesn't map the front ports.
+* You must make your own USB map. Mine doesn't map the front ports since I don't use them.
 
 ## UEFI/BIOS Settings
 
@@ -57,8 +57,12 @@ UEFI info
 * UEFI Version 2401 x64
 * Build Date: 07/15/2019
 * EC: MBEC-Z370-0206
-ME FW: 11.8.65.3590
-LED EC: AUMA0-E6K5-0104
+* ME FW: 11.8.65.3590
+* LED EC: AUMA0-E6K5-0104
+
+### Issues and Contributions
+
+You can use GitHub's issue tab in the repo if you have questions or have a bugs to report. There is no guarantee that your problem is going to recieve attention or not.
 
 ### DSDT/SSDT
 
@@ -94,8 +98,6 @@ Patches for GPUs, usually necessary in order to take advantage of hardware accel
 Generic HD audio support, likely not needed since I use an USB DAC, but important for general hardware support.
 * **IntelMausi**
 LAN kext for the on-board Intel GBE
-* **NoTouchID**
-I think you don't need this due to the SMBIOS, but certain prompts may lag when the system expect you to have Touch ID compatible hardware.
 * **VoodooPS2**
 Generic mouse support, you'll need to add the subpackages inside the VoodooPS2 folder, which includes the kexts from your keyboard, mouse, and touchpad.
 
@@ -107,7 +109,7 @@ Follow the documentation for Coffee Lake on the OpenCore doc. Very little differ
 
 ### iServices note
 
-Note that your IP can be flagged by Apple, which will require a phone call to Apple to be made in order to activate. Tether with your phone connection via HoRNDIS if this happens. Avoid using VPNs since the same issue might arise.
+Just want to add a thing. Your IP can be flagged by apple if you exceed login limits or use an invalid SMBIOS configuration. If this happens, you are usually able to login to iCloud, but will not be allowed to use any social iService (e.g. FaceTime, iMessage) without calling Apple. Tethering with your phone hotspot connection via HoRNDIS is the best way if your main isn't already flagged. Avoid using VPNs to activate.
 
 
 
