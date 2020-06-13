@@ -31,9 +31,9 @@ I need to add this.
 * Multi-monitor, up to 4. Hot-plugging sometimes works, but will always fail if not monitors are plugged in on boot.
 * DRM with HW acceleration, full support
 * Functions with iServices with proper SMBIOS configuration. Config in repo has identifing information removed.
+* FileVault
 **Untested**
 * USB 3.1 ports. They are on a seperate Asmedia ASM-105x chipset not provided by CPU or SB. I have it disabled in the UEFI. Mapping might not be necessary for these 2 ports.
-* FileVault, the configuration has a necessary options for it in order to work though.
 * NVMe, you should follow a guide if you choose to go down this route.
 * iGPU, as mentioned above.
 **Not working**
@@ -70,8 +70,8 @@ I tried to organize OpenCore upgrades and major + minor macOS upgrades into sepe
 
 The way I organized macOS upgrades is kind of different. If there isn't a minor version number, imply that branch applies for all minor versions available that has been publicly released.
 If there is a minor version upgrade, the latest minor version is the latest one that will work from the version listed to any newer
-Example:
-A branch has
+
+Example: A branch has
 1. 10.13-OC0.5.3 
 2.  10.13.4-OC0.5.3
 10.13 branch applies anywhere from initial release 10.13 until 10.13.3.
