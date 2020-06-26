@@ -32,6 +32,7 @@ I need to add this.
 * DRM with HW acceleration, full support
 * Functions with iServices with proper SMBIOS configuration. Config in repo has identifing information removed.
 * FileVault
+* Internal Audio
 
 **Untested**
 * USB 3.1 ports. They are on a seperate Asmedia ASM-105x chipset not provided by CPU or SB. I have it disabled in the UEFI. Mapping might not be necessary for these 2 ports.
