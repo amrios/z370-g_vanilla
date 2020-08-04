@@ -1,7 +1,18 @@
-# ASUS ROG STRIX Z370-G GAMING Hackintosh Notes
+# ASUS ROG STRIX Z370-G GAMING Hackintosh Notes, see below
 
 Based on [OpenCore Desktop Guide](https://dortania.github.io/OpenCore-Desktop-Guide/)
 Configuration is based on OpenCore 0.6.0
+
+## !!Not working for 0.6.0!!
+
+I've changed the configuration for OpenCore 0.6.0, but ran into a kernel panic very early during the boot process. The stack trace seemed to point it towards a memory problem. I didn't diagnose the issue yet and just rolled back to 0.5.9. Use the 0.5.9 branch of this repo if you want to use my notes.
+
+Here are a couple of pointers that might be the issue.
+
+* Delete the entire Delete keys that I renamed in the commit "Renamed Block entries" (332435236eb0599b678d66a5f1b463c280570311).
+* Fiddle around with RebuildAppleMemoryMap and EnableWriteUnprotector
+* Reset your NVRAM.
+
 
 ## Comments
 I usually only use the Hackintosh for general homework, and it works perfectly fine. More intensive workloads are stable, but extended periods haven't been tested.
