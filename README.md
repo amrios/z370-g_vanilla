@@ -53,7 +53,7 @@ I need to add this.
 * Motherboard: ASUS ROG Strix Z370-G Gaming
 * Memory: G-Skill F4-3000C16-8GTZR 2x8GB, XMP applied
 * Storage: Samsung SSD 860 EVO 1TB
-* Video card: AMD Radeon RX Vega 64
+* Video card: XFX AMD Radeon RX Vega 64
 * USB Sound: Focusrite Scarlett Solo 1st Gen
 
 UEFI info
