@@ -1,0 +1,11 @@
+*
+
+!.gitignore
+!README.md
+
+!EFI/
+!EFI/OC/
+!/EFI/OC/config.plist
+
+!tools/
+!tools/kextUpdate.sh
