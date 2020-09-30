@@ -4,21 +4,21 @@ Based on [OpenCore Desktop Guide](https://dortania.github.io/OpenCore-Desktop-Gu
 Configuration is based on OpenCore 0.6.1
 
 ## Comments
-I usually only use the Hackintosh for general homework, and it works perfectly fine. More intensive workloads are stable, but extended periods haven't been tested.
+Configuration seems stable, no kernel panics or anything not working (unless due to missing hardware i.e. airport wireless).
 
-The motherboard seems to be really great for Hackintosh, that might be due to OpenCore, though.
+The motherboard doesn't require too many patches. No need for a custom DSDT.
 
-If you browsed around the repo, I only included a config.plist. I'm against people using a drag-and-drop build or using *beast for Hackintosh since when things break, they really do break. If you have a drag-and-drop build in this case, you are kind of SOL since you won't really know where to start. The OpenCore desktop guide with some intuition is all you need for this board, it's probably my easiest Hackintosh yet and only took about 6 hours. Use my notes and commit history to hold your hand.
+I only included a config.plist. This repo is supposed to be a reference rather than a copy and paste build. Avoid using anything that automates most of the process.
 
 ## Considerations
 * iGPU has not been tested and probably doesn't work.
-* On-board audio has not been tested.
-* Onboard Wi-fi and BT probably doesn't work, I don't use it
 * You must make your own USB map. Mine doesn't map the front ports since I don't use them.
 
 ## UEFI/BIOS Settings
+No configuration needed if using default. Remember to disable VT-d!
 
-I need to add this.
+* Advanced -> System Agent -> Graphics Configuration - > Primary Display: PCIE
+* Advanced -> System Agent -> Graphics Configuration - > iGPU Multi-Monitor: Disabled (Can Enable if using latest WhateverGreen)
 
 ## Working/Not Working
 **Working**
@@ -26,9 +26,9 @@ I need to add this.
 * Ethernet, might have to play with ethernet options to obtain > 100Mb full duplex
 > System Preferences > Network > Ethernet > Advanced... > Hardware, then fiddle around if your speeds seem low.
 * CPU power management
-* Audio via USB DAC via AppleUSBAudioDevice
+* Audio on-board + external DAC
 * SIP
-* Multi-monitor, up to 4. Hot-plugging sometimes works, but will always fail if not monitors are plugged in on boot.
+* Multi-monitor, up to 4 tested. Hot-plugging sometimes works, but will always fail if monitors are not plugged in on boot.
 * DRM with HW acceleration, full support
 * Functions with iServices with proper SMBIOS configuration. Config in repo has identifing information removed.
 * FileVault
@@ -43,8 +43,6 @@ I need to add this.
 * Bluetooth and Wifi, there is no driver in macOS for the ones on-board. You must buy a compatible device in order to use them.
 * Any service requiring bluetooth due to lack of supported hardware.
 
-
-
 ## Other
 
 ### System Specs
@@ -53,7 +51,7 @@ I need to add this.
 * Motherboard: ASUS ROG Strix Z370-G Gaming
 * Memory: G-Skill F4-3000C16-8GTZR 2x8GB, XMP applied
 * Storage: Samsung SSD 860 EVO 1TB
-* Video card: XFX AMD Radeon RX Vega 64
+* Video card: XFX Reference AMD Radeon RX Vega 64 RX-VEGMTBFX6
 * USB Sound: Focusrite Scarlett Solo 1st Gen
 
 UEFI info
@@ -62,6 +60,8 @@ UEFI info
 * EC: MBEC-Z370-0206
 * ME FW: 11.8.65.3590
 * LED EC: AUMA0-E6K5-0104
+
+The XFX card works perfectly fine despite the brand being infamous for capability issues in macOS.
 
 ### Issues and Contributions
 
