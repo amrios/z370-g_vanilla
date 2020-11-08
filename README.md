@@ -1,7 +1,7 @@
 # ASUS ROG STRIX Z370-G GAMING Hackintosh Notes
 
 Based on [OpenCore Desktop Guide](https://dortania.github.io/OpenCore-Desktop-Guide/)
-Configuration is based on OpenCore 0.6.1
+Configuration is based on OpenCore 0.6.2
 
 ## Comments
 Configuration seems stable, no kernel panics or anything not working (unless due to missing hardware i.e. airport wireless).
