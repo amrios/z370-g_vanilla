@@ -17,8 +17,11 @@ I only included a config.plist. This repo is supposed to be a reference rather t
 ## UEFI/BIOS Settings
 No configuration needed if using default. Remember to disable VT-d!
 
+From a default state:
+
 * Advanced -> System Agent -> Graphics Configuration - > Primary Display: PCIE
-* Advanced -> System Agent -> Graphics Configuration - > iGPU Multi-Monitor: Disabled (Can Enable if using latest WhateverGreen)
+* Advanced -> System Agent -> Graphics Configuration - > iGPU Multi-Monitor: Disabled (Not needed after WhateverGreen 1.3.9)
+* Boot -> CSM -> Launch CSM -> Enabled (Optional, enable for USB 3.1) 
 
 ## Working/Not Working
 **Working**
@@ -33,9 +36,9 @@ No configuration needed if using default. Remember to disable VT-d!
 * Functions with iServices with proper SMBIOS configuration. Config in repo has identifing information removed.
 * FileVault
 * Internal Audio
+* USB 3.1 ports seem to require CSM to be enabled in the UEFI.
 
 **Untested**
-* USB 3.1 ports. They are on a seperate Asmedia ASM-105x chipset not provided by CPU or SB. I have it disabled in the UEFI. Mapping might not be necessary for these 2 ports.
 * NVMe, you should follow a guide if you choose to go down this route.
 * iGPU, as mentioned above.
 
@@ -69,6 +72,8 @@ You can use GitHub's issue tab in the repo if you have questions or have a bugs 
 
 ### Older Versions
 
+A wiki page is available, detailing what systems the configuration file was confirmed working on.
+
 I tried to organize OpenCore upgrades and major + minor macOS upgrades into seperate branches.
 
 The way I organized macOS upgrades is kind of different. If there isn't a minor version number, imply that branch applies for all minor versions available that has been publicly released.
@@ -82,7 +87,7 @@ Example: A branch has
 
 ### DSDT/SSDT
 
-The kexts will have the proper corrections for the DSDT and we don't need to define patches or a custom DSDT in OpenCore. Follow OpenCore documentation for SSDT. Our board does not have a AWAC, so you do not need the AWAC patch.
+The kexts will have the proper corrections for the DSDT and we don't need to define patches or a custom DSDT in OpenCore. Follow OpenCore documentation for SSDT. Our board does not have a AWAC, so you do not need the AWAC patch since the motherboard doesn't feature AWAC.
 
 Therefore, we only need the following SSDT:
 * SSDT-EC-USBX
