@@ -1,7 +1,7 @@
 # ASUS ROG STRIX Z370-G GAMING Hackintosh Notes
 
 Based on [OpenCore Desktop Guide](https://dortania.github.io/OpenCore-Desktop-Guide/)
-Configuration is based on OpenCore 0.6.3
+Configuration is based on OpenCore 0.6.4
 
 ## Comments
 Configuration seems stable, no kernel panics or anything not working (unless due to missing hardware i.e. airport wireless).
@@ -93,18 +93,18 @@ Therefore, we only need the following SSDT:
 * SSDT-EC-USBX
 * SSDT-PLUG
 
-Note that if you use SSDTTime, you will only get SSDT-EC. The guide will talk about grabbing a SSDT-USBX.aml that you can use, but I just modified my SSDT based on the sample file on GitHub. There aren't really any modifications, just make sure you brackets are balanced. The `Scope (\_SB.PCI0.LPCB)` is inside of `Scope (\_SB)` from the sample.
+Note that if you use SSDTTime, you will only get SSDT-EC. You can just use the sample file provided, there are no modifications needed.
 
 ## Annotated Steps
-You should follow [OpenCore Desktop Guide](https://dortania.github.io/OpenCore-Desktop-Guide/) and use this guide to supplement.
+You should follow [OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide) and use this guide to supplement.
 ### Obtaining MacOS
-Note that downloading an image of macOS from an unofficial source can be dangerous. Check hashsums to avoid tampered images.
-### Adding Base Files
-Our CPU codename is Coffee Lake. You'll want to follow the removal part since our goal is to make our modification as small as possible. You can add OpenCanopy if you want. I found some of the tools useful, so I kept some.
+Note that downloading an image of macOS from an unofficial source can be dangerous. Check hashsums to avoid tampered images. gibmacOS seems to be the standard way of retrieval these days.
+### Adding the Base OpenCore Files
+Our CPU codename is Coffee Lake. The key concern for this section is to remove the unecessary files that aren't needed for our system or purpose. For my logic, I kept the tools since I use it to debug the machine, kept OpenCanopy to have a nice graphical interface that tries to simulate a real Mac on bootup, AudioDxe to get the chime on boot, and the Ps2 files since I still use a PS2 keyboard.
 #### Kexts
 I'll provide the reasoning why I chose each Kext or Kext Package.
 * **VirtualSMC**
-macOS requires a SMC to boot to verify if the hardware is genuine. This emulates one. You should use the following kext unless warranted.
+macOS requires a SMC to boot to verify if the hardware is genuine. This emulates one. You should use the following kext unless you know what you are doing
 > 1. VirtualSMC
 >This is the main package to emulate the SMC
 > 2. SMCProcessor
