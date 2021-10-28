@@ -23,6 +23,8 @@
 				<string>SSDT-EC-USBX.aml</string>
 			</dict>
 		</array>
+		<key>Delete</key>
+		<array/>
 		<key>Patch</key>
 		<array>
 			<dict>
@@ -123,6 +125,8 @@
 				<false/>
 			</dict>
 		</array>
+		<key>Patch</key>
+		<array/>
 		<key>Quirks</key>
 		<dict>
 			<key>AllowRelocationBlock</key>
@@ -363,6 +367,8 @@
 				<string>Ethernet Connection (2) I219-V</string>
 			</dict>
 		</dict>
+		<key>Delete</key>
+		<dict/>
 	</dict>
 	<key>Kernel</key>
 	<dict>
@@ -397,6 +403,12 @@
 				<string>Contents/MacOS/VoodooPS2Trackpad</string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
+				<key>Comment</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>MaxKernel</key>
+				<string></string>
 			</dict>
 			<dict>
 				<key>Arch</key>
@@ -409,6 +421,12 @@
 				<string>Contents/MacOS/VoodooPS2Keyboard</string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
+				<key>Comment</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>MaxKernel</key>
+				<string></string>
 			</dict>
 			<dict>
 				<key>Arch</key>
@@ -421,6 +439,12 @@
 				<string>Contents/MacOS/VoodooPS2Mouse</string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
+				<key>Comment</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>MaxKernel</key>
+				<string></string>
 			</dict>
 			<dict>
 				<key>Arch</key>
@@ -581,26 +605,9 @@
 				<string></string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
+				<key>Arch</key>
+				<string>Any</string>
 			</dict>
-<<<<<<< HEAD
-=======
-			<dict>
-				<key>BundlePath</key>
-				<string>LuLu.kext</string>
-				<key>Comment</key>
-				<string>Third-party Firewall</string>
-				<key>Enabled</key>
-				<true/>
-				<key>ExecutablePath</key>
-				<string>Contents/MacOS/LuLu</string>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
->>>>>>> parent of 616c113 (Updated configuration for OC0.6.7)
 		</array>
 		<key>Block</key>
 		<array>
@@ -977,6 +984,8 @@
 				<data>ZW4tVVM6MA==</data>
 			</dict>
 		</dict>
+		<key>Delete</key>
+		<dict/>
 		<key>LegacyEnable</key>
 		<false/>
 		<key>LegacyOverwrite</key>
@@ -1100,6 +1109,8 @@
 			<integer>20</integer>
 			<key>PlayChime</key>
 			<string>Enabled</string>
+			<key>ResetTrafficClass</key>
+			<false/>
 			<key>SetupDelay</key>
 			<integer>0</integer>
 			<key>VolumeAmplifier</key>
@@ -1166,8 +1177,6 @@
 			<false/>
 			<key>KeyForgetThreshold</key>
 			<integer>5</integer>
-			<key>KeyMergeThreshold</key>
-			<integer>2</integer>
 			<key>KeySupport</key>
 			<true/>
 			<key>KeySupportMode</key>
@@ -1189,11 +1198,8 @@
 			<string></string>
 			<key>DirectGopRendering</key>
 			<false/>
-<<<<<<< HEAD
 			<key>GopPassThrough</key>
 			<string>Disabled</string>
-=======
->>>>>>> parent of 616c113 (Updated configuration for OC0.6.7)
 			<key>ForceResolution</key>
 			<false/>
 			<key>IgnoreTextInGraphics</key>
@@ -1254,15 +1260,12 @@
 		</dict>
 		<key>Quirks</key>
 		<dict>
-<<<<<<< HEAD
 			<key>ActivateHpetSupport</key>
 			<false/>
 			<key>DisableSecurityPolicy</key>
 			<false/>
 			<key>EnableVectorAcceleration</key>
 			<true/>
-=======
->>>>>>> parent of 616c113 (Updated configuration for OC0.6.7)
 			<key>ExitBootServicesDelay</key>
 			<integer>0</integer>
 			<key>ForceOcWriteFlash</key>
