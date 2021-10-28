@@ -23,11 +23,13 @@
 				<string>SSDT-EC-USBX.aml</string>
 			</dict>
 		</array>
-		<key>Delete</key>
-		<array/>
 		<key>Patch</key>
 		<array>
 			<dict>
+				<key>Base</key>
+				<string></string>
+				<key>BaseSkip</key>
+				<integer>0</integer>
 				<key>Comment</key>
 				<string>_Q11 to XQ11</string>
 				<key>Count</key>
@@ -54,6 +56,10 @@
 				<data></data>
 			</dict>
 			<dict>
+				<key>Base</key>
+				<string></string>
+				<key>BaseSkip</key>
+				<integer>0</integer>
 				<key>Comment</key>
 				<string>_Q12 to XQ12</string>
 				<key>Count</key>
@@ -92,6 +98,8 @@
 			<false/>
 			<key>ResetLogoStatus</key>
 			<false/>
+			<key>SyncTableIds</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>Booter</key>
@@ -115,8 +123,6 @@
 				<false/>
 			</dict>
 		</array>
-		<key>Patch</key>
-		<array/>
 		<key>Quirks</key>
 		<dict>
 			<key>AllowRelocationBlock</key>
@@ -135,6 +141,8 @@
 			<true/>
 			<key>EnableWriteUnprotector</key>
 			<true/>
+			<key>ForceBooterSignature</key>
+			<false/>
 			<key>ForceExitBootServices</key>
 			<false/>
 			<key>ProtectMemoryRegions</key>
@@ -355,8 +363,6 @@
 				<string>Ethernet Connection (2) I219-V</string>
 			</dict>
 		</dict>
-		<key>Delete</key>
-		<dict/>
 	</dict>
 	<key>Kernel</key>
 	<dict>
@@ -391,12 +397,6 @@
 				<string>Contents/MacOS/VoodooPS2Trackpad</string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
-				<key>Comment</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string></string>
-				<key>MaxKernel</key>
-				<string></string>
 			</dict>
 			<dict>
 				<key>Arch</key>
@@ -409,12 +409,6 @@
 				<string>Contents/MacOS/VoodooPS2Keyboard</string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
-				<key>Comment</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string></string>
-				<key>MaxKernel</key>
-				<string></string>
 			</dict>
 			<dict>
 				<key>Arch</key>
@@ -427,12 +421,6 @@
 				<string>Contents/MacOS/VoodooPS2Mouse</string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
-				<key>Comment</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string></string>
-				<key>MaxKernel</key>
-				<string></string>
 			</dict>
 			<dict>
 				<key>Arch</key>
@@ -593,9 +581,9 @@
 				<string></string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
-				<key>Arch</key>
-				<string>Any</string>
 			</dict>
+<<<<<<< HEAD
+=======
 			<dict>
 				<key>BundlePath</key>
 				<string>LuLu.kext</string>
@@ -611,9 +599,8 @@
 				<string></string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
-				<key>Arch</key>
-				<string>x86_64</string>
 			</dict>
+>>>>>>> parent of 616c113 (Updated configuration for OC0.6.7)
 		</array>
 		<key>Block</key>
 		<array>
@@ -780,6 +767,8 @@
 			<true/>
 			<key>XhciPortLimit</key>
 			<false/>
+			<key>ProvideCurrentCpuInfo</key>
+			<false/>
 		</dict>
 		<key>Scheme</key>
 		<dict>
@@ -789,6 +778,8 @@
 			<string>x86_64</string>
 			<key>KernelCache</key>
 			<string>Auto</string>
+			<key>CustomKernel</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>Misc</key>
@@ -854,6 +845,8 @@
 				<string>Not signed for security reasons</string>
 				<key>Enabled</key>
 				<false/>
+				<key>Flavour</key>
+				<string>Auto</string>
 				<key>Name</key>
 				<string>CustomOS</string>
 				<key>Path</key>
@@ -868,6 +861,8 @@
 			<true/>
 			<key>AllowSetDefault</key>
 			<true/>
+			<key>AllowToggleSip</key>
+			<false/>
 			<key>ApECID</key>
 			<integer>0</integer>
 			<key>AuthRestart</key>
@@ -904,6 +899,8 @@
 				<string>Not signed for security reasons</string>
 				<key>Enabled</key>
 				<true/>
+				<key>Flavour</key>
+				<string>OpenShell:UEFIShell:Shell</string>
 				<key>Name</key>
 				<string>UEFI Shell</string>
 				<key>Path</key>
@@ -922,6 +919,8 @@
 				<string>Memory testing utility</string>
 				<key>Enabled</key>
 				<false/>
+				<key>Flavour</key>
+				<string>MemTest</string>
 				<key>Name</key>
 				<string>memcheck</string>
 				<key>Path</key>
@@ -940,6 +939,8 @@
 				<string>Perform shutdown</string>
 				<key>Enabled</key>
 				<false/>
+				<key>Flavour</key>
+				<string>Auto</string>
 				<key>Name</key>
 				<string>Shutdown</string>
 				<key>Path</key>
@@ -976,8 +977,6 @@
 				<data>ZW4tVVM6MA==</data>
 			</dict>
 		</dict>
-		<key>Delete</key>
-		<dict/>
 		<key>LegacyEnable</key>
 		<false/>
 		<key>LegacyOverwrite</key>
@@ -1021,7 +1020,7 @@
 		<false/>
 		<key>Generic</key>
 		<dict>
-			<key>AdviseWindows</key>
+			<key>AdviseFeatures</key>
 			<false/>
 			<key>MaxBIOSVersion</key>
 			<false/>
@@ -1040,7 +1039,7 @@
 			<key>SystemSerialNumber</key>
 			<string>Fill</string>
 			<key>SystemUUID</key>
-			<string>uuidgen</string>
+			<string>Fill</string>
 		</dict>
 		<key>UpdateDataHub</key>
 		<true/>
@@ -1070,6 +1069,23 @@
 			<key>MinVersion</key>
 			<integer>0</integer>
 		</dict>
+		<key>AppleInput</key>
+		<dict>
+			<key>AppleEvent</key>
+			<string>Builtin</string>
+			<key>CustomDelays</key>
+			<false/>
+			<key>GraphicsInputMirroring</key>
+			<true/>
+			<key>KeyInitialDelay</key>
+			<integer>0</integer>
+			<key>KeySubsequentDelay</key>
+			<integer>5</integer>
+			<key>PointerSpeedDiv</key>
+			<integer>1</integer>
+			<key>PointerSpeedMul</key>
+			<integer>1</integer>
+		</dict>
 		<key>Audio</key>
 		<dict>
 			<key>AudioCodec</key>
@@ -1084,8 +1100,6 @@
 			<integer>20</integer>
 			<key>PlayChime</key>
 			<string>Enabled</string>
-			<key>ResetTrafficClass</key>
-			<false/>
 			<key>SetupDelay</key>
 			<integer>0</integer>
 			<key>VolumeAmplifier</key>
@@ -1095,11 +1109,56 @@
 		<true/>
 		<key>Drivers</key>
 		<array>
-			<string>HfsPlus.efi</string>
-			<string>OpenRuntime.efi</string>
-			<string>OpenCanopy.efi</string>
-			<string>Ps2KeyboardDxe.efi</string>
-			<string>Ps2MouseDxe.efi</string>
+			<dict>
+				<key>Arguments</key>
+				<string></string>
+				<key>Comment</key>
+				<string>HFS+ Driver</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>HfsPlus.efi</string>
+			</dict>
+			<dict>
+				<key>Arguments</key>
+				<string></string>
+				<key>Comment</key>
+				<string></string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>OpenRuntime.efi</string>
+			</dict>
+			<dict>
+				<key>Arguments</key>
+				<string></string>
+				<key>Comment</key>
+				<string></string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>OpenCanopy.efi</string>
+			</dict>
+			<dict>
+				<key>Arguments</key>
+				<string></string>
+				<key>Comment</key>
+				<string></string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>Ps2KeyboardDxe.efi</string>
+			</dict>
+			<dict>
+				<key>Arguments</key>
+				<string></string>
+				<key>Comment</key>
+				<string></string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>Ps2MouseDxe.efi</string>
+			</dict>
 		</array>
 		<key>Input</key>
 		<dict>
@@ -1107,6 +1166,8 @@
 			<false/>
 			<key>KeyForgetThreshold</key>
 			<integer>5</integer>
+			<key>KeyMergeThreshold</key>
+			<integer>2</integer>
 			<key>KeySupport</key>
 			<true/>
 			<key>KeySupportMode</key>
@@ -1128,8 +1189,11 @@
 			<string></string>
 			<key>DirectGopRendering</key>
 			<false/>
+<<<<<<< HEAD
 			<key>GopPassThrough</key>
-			<false/>
+			<string>Disabled</string>
+=======
+>>>>>>> parent of 616c113 (Updated configuration for OC0.6.7)
 			<key>ForceResolution</key>
 			<false/>
 			<key>IgnoreTextInGraphics</key>
@@ -1157,7 +1221,7 @@
 			<false/>
 			<key>AppleDebugLog</key>
 			<false/>
-			<key>AppleEvent</key>
+			<key>AppleEg2Info</key>
 			<false/>
 			<key>AppleFramebufferInfo</key>
 			<false/>
@@ -1190,15 +1254,26 @@
 		</dict>
 		<key>Quirks</key>
 		<dict>
+<<<<<<< HEAD
 			<key>ActivateHpetSupport</key>
 			<false/>
 			<key>DisableSecurityPolicy</key>
 			<false/>
+			<key>EnableVectorAcceleration</key>
+			<true/>
+=======
+>>>>>>> parent of 616c113 (Updated configuration for OC0.6.7)
 			<key>ExitBootServicesDelay</key>
 			<integer>0</integer>
+			<key>ForceOcWriteFlash</key>
+			<false/>
+			<key>ForgeUefiSupport</key>
+			<false/>
 			<key>IgnoreInvalidFlexRatio</key>
 			<false/>
 			<key>ReleaseUsbOwnership</key>
+			<false/>
+			<key>ReloadOptionRoms</key>
 			<false/>
 			<key>RequestBootVarRouting</key>
 			<true/>
