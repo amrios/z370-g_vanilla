@@ -11,27 +11,23 @@ The motherboard doesn't require too many patches. No need for a custom DSDT.
 I only included a config.plist. This repo is supposed to be a reference rather than a copy and paste build. Avoid using anything that automates most of the process.
 
 ## Considerations
-* iGPU has not been tested and probably doesn't work.
-* You must make your own USB map. Mine doesn't map the front ports since I don't use them.
-
+* iGPU hasn't been strenuously tested. It didn't work the last time I tried to use it.
+* You must make your own USB map. Mine doesn't map the front ports since my case lacks them.
 ## UEFI/BIOS Settings
 No configuration needed if using default. Remember to disable VT-d!
 
-From a default state:
+If you want the USB 3.1 to work, set these.
 
-* Advanced -> System Agent -> Graphics Configuration - > Primary Display: PCIE
-* Advanced -> System Agent -> Graphics Configuration - > iGPU Multi-Monitor: Disabled (Not needed after WhateverGreen 1.3.9)
 * Boot -> CSM -> Launch CSM -> Enabled (Optional, enable for USB 3.1) 
 
 ## Working/Not Working
 **Working**
 * Suspend and Wakeup w/ Power Nap
-* Ethernet, might have to play with ethernet options to obtain > 100Mb full duplex
-> System Preferences > Network > Ethernet > Advanced... > Hardware, then fiddle around if your speeds seem low.
+* Ethernet
 * CPU power management
 * Audio on-board + external DAC
 * SIP
-* Multi-monitor, up to 4 tested. Hot-plugging sometimes works, but will always fail if monitors are not plugged in on boot.
+* Multi-monitor, up to 4 tested. Hot-plugging works.
 * DRM with HW acceleration, full support
 * Functions with iServices with proper SMBIOS configuration. Config in repo has identifing information removed.
 * FileVault
@@ -44,7 +40,6 @@ From a default state:
 
 **Not working**
 * Bluetooth and Wifi, there is no driver in macOS for the ones on-board. You must buy a compatible device in order to use them.
-* Any service requiring bluetooth due to lack of supported hardware.
 
 ## Other
 
@@ -55,7 +50,7 @@ From a default state:
 * Memory: G-Skill F4-3000C16-8GTZR 2x8GB, XMP applied
 * Storage: Samsung SSD 860 EVO 1TB
 * Video card: XFX Reference AMD Radeon RX Vega 64 RX-VEGMTBFX6
-* USB Sound: Focusrite Scarlett Solo 1st Gen
+* USB Sound: Focusrite Scarlett Solo 1st Gen + Behringer XENYX Q802USB
 
 UEFI info
 * UEFI Version 2401 x64
@@ -68,22 +63,13 @@ The XFX card works perfectly fine despite the brand being infamous for capabilit
 
 ### Issues and Contributions
 
-You can use GitHub's issue tab in the repo if you have questions or have a bugs to report. There is no guarantee that your problem is going to recieve attention or not.
+You can use GitHub's issue tab in the repo if you have questions or have a bugs to report. There is no guarantee that your problem is going to receive attention or not.
 
 ### Older Versions
 
-A wiki page is available, detailing what systems the configuration file was confirmed working on.
+A wiki page is available, detailing what systems the configuration file was confirmed working on during testing.
 
 I tried to organize OpenCore upgrades and major + minor macOS upgrades into seperate branches.
-
-The way I organized macOS upgrades is kind of different. If there isn't a minor version number, imply that branch applies for all minor versions available that has been publicly released.
-If there is a minor version upgrade, the latest minor version is the latest one that will work from the version listed to any newer
-
-Example: A branch has
-1. 10.13-OC0.5.3 
-2.  10.13.4-OC0.5.3
-10.13 branch applies anywhere from initial release 10.13 until 10.13.3.
-10.13.4 applies for 10.13.4 until anywhere newer.
 
 ### DSDT/SSDT
 
@@ -93,7 +79,7 @@ Therefore, we only need the following SSDT:
 * SSDT-EC-USBX
 * SSDT-PLUG
 
-Note that if you use SSDTTime, you will only get SSDT-EC. You can just use the sample file provided, there are no modifications needed.
+Note that if you use SSDTTime, you will only get SSDT-EC. You can just use the generic sample file provided, there are no modifications needed.
 
 ## Annotated Steps
 You should follow [OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide) and use this guide to supplement.
@@ -120,7 +106,7 @@ Generic HD audio support, likely not needed since I use an USB DAC, but importan
 * **IntelMausi**
 LAN kext for the on-board Intel GBE
 * **VoodooPS2**
-Generic mouse support, you'll need to add the subpackages inside the VoodooPS2 folder, which includes the kexts from your keyboard, mouse, and touchpad.
+I still use a PS2 keyboard. Most people aren't like me. If you are normal and use a USB keyboard, you probably don't need this.
 
 You might need some more depending on your usage, but for my general use, this is fine.
 
